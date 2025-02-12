@@ -1,4 +1,4 @@
-{% set version = "0.5.1.690" %}
+{% set version = "0.6.0.712" %}
 {% set libcal_version = "0.4.4.50" %}
 {% set lib_version = version.split(".")[0]+"."+version.split(".")[1]+"."+version.split(".")[2]+".0" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
@@ -14,8 +14,8 @@ package:
 
 source:
   url: https://developer.download.nvidia.com/compute/cusolvermp/redist/libcusolvermp/{{ platform }}/libcusolvermp-{{ platform }}-{{ version }}_cuda{{ cuda_major }}-archive.{{ extension }}
-  sha256: ea12f900a6a01e5ed6d4907d15e01ed017c903d9fae4c0da5798a7e71c90db66  # [linux64]
-  sha256: 16799e30ff56e1eac31e35a4e94bc0971ef98b6352c9f278fd28954e384c7181  # [aarch64]
+  sha256: f5e6fc4b959ba61bf30165deb1a7ea71f2d0d897191bfa63e8518b13fb424cc3  # [linux64]
+  sha256: da4d80bde80fecda905461c11b0516f4af73e77d1ae680c7822d766208b59e4e  # [aarch64]
 
 build:
   number: 0
