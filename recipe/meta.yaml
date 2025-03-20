@@ -2,7 +2,7 @@
 {% set libcal_version = "0.4.4.50" %}
 {% set lib_version = version.split(".")[0]+"."+version.split(".")[1]+"."+version.split(".")[2]+".0" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
-{% set platform = "linux-sbsa" %}    # [aarch64]
+{% set platform = "linux-sbsa" %}  # [aarch64]
 {% set extension = "tar.xz" %}
 
 {% set cuda_major = environ.get("cuda_compiler_version", "12.6").split(".")[0] %}
@@ -18,12 +18,17 @@ source:
   sha256: da4d80bde80fecda905461c11b0516f4af73e77d1ae680c7822d766208b59e4e  # [aarch64]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not (linux64 or aarch64)]
   skip: true  # [cuda_compiler_version in (None, "None") or (cuda_compiler_version or "").startswith("11")]
   script:
     - cp -rv include $PREFIX
     - cp -rv lib $PREFIX
+    - check-glibc "$PREFIX"/lib*/*.so.* "$PREFIX"/bin/* "$PREFIX"/targets/*/lib*/*.so.* "$PREFIX"/targets/*/bin/*  # [linux]
+
+requirements:
+  build:
+    - cf-nvidia-tools 1.*  # [linux]
 
 outputs:
   - name: libcusolvermp{{ soname }}
