@@ -1,5 +1,4 @@
-{% set version = "0.6.0.712" %}
-{% set libcal_version = "0.4.4.50" %}
+{% set version = "0.7.0.833" %}
 {% set lib_version = version.split(".")[0]+"."+version.split(".")[1]+"."+version.split(".")[2]+".0" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
 {% set platform = "linux-sbsa" %}  # [aarch64]
@@ -14,11 +13,13 @@ package:
 
 source:
   url: https://developer.download.nvidia.com/compute/cusolvermp/redist/libcusolvermp/{{ platform }}/libcusolvermp-{{ platform }}-{{ version }}_cuda{{ cuda_major }}-archive.{{ extension }}
-  sha256: f5e6fc4b959ba61bf30165deb1a7ea71f2d0d897191bfa63e8518b13fb424cc3  # [linux64]
-  sha256: da4d80bde80fecda905461c11b0516f4af73e77d1ae680c7822d766208b59e4e  # [aarch64]
+  sha256: 5383f35eefd45cc0a5cbd173a4a353941f02b912eb2f8d3a85c30345054df5e9  # [linux64 and (cuda_compiler_version or "").startswith("12")]
+  sha256: 4a4bf2d08dad3a276b33f9356f8cd8b5b2a70201257a277c83bb3cfdb7a7107a  # [linux64 and (cuda_compiler_version or "").startswith("13")]
+  sha256: a0012c5be7ac742a26cf8894bed3c703edea84eddf0d5dca42d35582622ffb9b  # [aarch64 and (cuda_compiler_version or "").startswith("12")]
+  sha256: 51b80fc5cdeb197b3e9b1de393a8413943ccb2d0e7509c6a183816be83123260  # [aarch64 and (cuda_compiler_version or "").startswith("13")]
 
 build:
-  number: 1
+  number: 0
   skip: true  # [not (linux64 or aarch64)]
   skip: true  # [cuda_compiler_version in (None, "None") or (cuda_compiler_version or "").startswith("11")]
   script:
@@ -37,10 +38,11 @@ outputs:
         - {{ pin_subpackage("libcusolvermp" ~ soname, max_pin="x") }}
       ignore_run_exports_from:
         # Ignore `cuda-version` constraint as this supports CUDA Enhanced Compatibility.
-        - {{ compiler("cuda") }}
         - libcusolver-dev
         - cuda-cudart-dev
         - libcublas-dev
+      ignore_run_exports:
+        - cuda-version
     files:
       - lib/libcusolverMp.so.*
     requirements:
@@ -48,22 +50,19 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ compiler('cuda') }}
-        - arm-variant * {{ arm_variant_type }}  # [aarch64]
         - {{ stdlib("c") }}
       host:
         - cuda-version {{ cuda_compiler_version }}
         - libcusolver-dev
         - cuda-cudart-dev
         - libcublas-dev
-        - libcal {{ libcal_version }}
+        - nccl
       run:
-        - {{ pin_compatible("libcal", exact=True) }}
         - {{ pin_compatible("cuda-version", min_pin="x", max_pin="x") }}
         - libcusolver
         - cuda-cudart
         - libcublas
-      run_constrained:
-        - arm-variant * {{ arm_variant_type }}  # [aarch64]
+        - nccl
     test:
       commands:
         - test -L $PREFIX/lib/libcusolverMp.so.{{ soname }}
@@ -71,16 +70,21 @@ outputs:
 
   - name: libcusolvermp-dev
     build:
+      ignore_run_exports:
+        - cuda-version
       run_exports:
         - {{ pin_subpackage("libcusolvermp" ~ soname, max_pin="x") }}
     files:
       - lib/libcusolverMp.so
       - include/cusolverMp.h
     requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - {{ compiler('cuda') }}
+        - {{ stdlib("c") }}
       run:
         - {{ pin_subpackage("libcusolvermp" ~ soname, exact=True) }}
-      run_constrained:
-        - arm-variant * {{ arm_variant_type }}  # [aarch64]
     test:
       commands:
         - test -f $PREFIX/include/cusolverMp.h
