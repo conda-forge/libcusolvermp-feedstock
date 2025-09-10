@@ -37,11 +37,11 @@ outputs:
       run_exports:
         - {{ pin_subpackage("libcusolvermp" ~ soname, max_pin="x") }}
       ignore_run_exports_from:
-        # Ignore `cuda-version` constraint as this supports CUDA Enhanced Compatibility.
         - libcusolver-dev
         - cuda-cudart-dev
         - libcublas-dev
       ignore_run_exports:
+        # Ignore `cuda-version` constraint as this supports CUDA Enhanced Compatibility.
         - cuda-version
     files:
       - lib/libcusolverMp.so.*
