@@ -20,8 +20,8 @@ cuSOLVERMp is compatible with 2D block-cyclic data layout and provides ScaLAPACK
 A companion library, CAL, contains utilities to manage communicators and to synchronize processes in a safe way.
 
 
-About libcusolvermp0
---------------------
+About libcusolvermp-dev
+-----------------------
 
 Home: https://docs.nvidia.com/cuda/cusolvermp/
 
@@ -36,8 +36,8 @@ cuSOLVERMp is compatible with 2D block-cyclic data layout and provides ScaLAPACK
 A companion library, CAL, contains utilities to manage communicators and to synchronize processes in a safe way.
 
 
-About libcusolvermp-dev
------------------------
+About libcusolvermp0
+--------------------
 
 Home: https://docs.nvidia.com/cuda/cusolvermp/
 
@@ -70,17 +70,31 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_c_compiler_version13cuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13</td>
+              <td>linux_64_c_stdlib_version2.17cuda_compiler_version12.9</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=24124&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libcusolvermp-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_c_compiler_version13cuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libcusolvermp-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_c_stdlib_version2.17cuda_compiler_version12.9" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_c_compiler_version13cuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13</td>
+              <td>linux_64_c_stdlib_version2.28cuda_compiler_version13.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=24124&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libcusolvermp-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_c_compiler_version13cuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libcusolvermp-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_c_stdlib_version2.28cuda_compiler_version13.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64_c_stdlib_version2.17cuda_compiler_version12.9</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=24124&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libcusolvermp-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_c_stdlib_version2.17cuda_compiler_version12.9" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64_c_stdlib_version2.28cuda_compiler_version13.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=24124&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libcusolvermp-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_c_stdlib_version2.28cuda_compiler_version13.0" alt="variant">
                 </a>
               </td>
             </tr>
