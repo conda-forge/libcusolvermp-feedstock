@@ -57,13 +57,12 @@ outputs:
         - cuda-cudart-dev
         - libcublas-dev
         - nccl 2.25.1.*  # [(cuda_compiler_version or "").startswith("12")]
-        - nccl 2.27.4.*  # [(cuda_compiler_version or "").startswith("13")] 
+        - nccl 2.27.4.*  # [(cuda_compiler_version or "").startswith("13")]
       run:
         - {{ pin_compatible("cuda-version", min_pin="x", max_pin="x") }}
         - libcusolver
         - cuda-cudart
         - libcublas
-        - nccl
     test:
       commands:
         - test -L $PREFIX/lib/libcusolverMp.so.{{ soname }}
@@ -98,7 +97,7 @@ about:
   license_url: https://docs.nvidia.com/cuda/cusolvermp/license/index.html
   summary: NVIDIA cuSOLVERMp is a high-performance, distributed-memory, GPU-accelerated library that provides tools for the solution of dense linear systems and eigenvalue problems.
   description: |
-    NVIDIA cuSOLVERMp is a high-performance, distributed-memory, GPU-accelerated library that provides tools for the solution of dense linear systems and eigenvalue problems. 
+    NVIDIA cuSOLVERMp is a high-performance, distributed-memory, GPU-accelerated library that provides tools for the solution of dense linear systems and eigenvalue problems.
     cuSOLVERMp is compatible with 2D block-cyclic data layout and provides ScaLAPACK-like C APIs.
     A companion library, CAL, contains utilities to manage communicators and to synchronize processes in a safe way.
   doc_url: https://docs.nvidia.com/cuda/cusolvermp/
