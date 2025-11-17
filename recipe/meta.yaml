@@ -56,13 +56,13 @@ outputs:
         - libcusolver-dev
         - cuda-cudart-dev
         - libcublas-dev
-        - nccl 2.27.4.*
+        - nccl 2.27.7.*
       run:
         - {{ pin_compatible("cuda-version", min_pin="x", max_pin="x") }}
         - libcusolver
         - cuda-cudart
         - libcublas
-        - nccl >=2.27.4
+        - nccl >=2.27.7
     test:
       commands:
         - test -L $PREFIX/lib/libcusolverMp.so.{{ soname }}
