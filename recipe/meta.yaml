@@ -35,7 +35,7 @@ outputs:
   - name: libcusolvermp{{ soname }}
     build:
       run_exports:
-        - {{ pin_subpackage("libcusolvermp" ~ soname, exact=True) }}
+        - {{ pin_subpackage("libcusolvermp" ~ soname, max_pin="x.x") }}
       ignore_run_exports_from:
         - libcusolver-dev
         - cuda-cudart-dev
@@ -74,7 +74,7 @@ outputs:
       ignore_run_exports:
         - cuda-version
       run_exports:
-        - {{ pin_subpackage("libcusolvermp" ~ soname, exact=True) }}
+        - {{ pin_subpackage("libcusolvermp" ~ soname, max_pin="x.x") }}
     files:
       - lib/libcusolverMp.so
       - include/cusolverMp.h
