@@ -3,42 +3,6 @@ About libcusolvermp-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcusolvermp-feedstock/blob/main/LICENSE.txt)
 
-
-About libcusolvermp
--------------------
-
-Home: https://docs.nvidia.com/cuda/cusolvermp/
-
-Package license: [LicenseRef-NVIDIA-End-User-License-Agreement](https://docs.nvidia.com/cuda/cusolvermp/license/index.html)
-
-Summary: NVIDIA cuSOLVERMp is a high-performance, distributed-memory, GPU-accelerated library that provides tools for the solution of dense linear systems and eigenvalue problems.
-
-Documentation: https://docs.nvidia.com/cuda/cusolvermp/
-
-NVIDIA cuSOLVERMp is a high-performance, distributed-memory, GPU-accelerated library that provides tools for the solution of dense linear systems and eigenvalue problems. 
-cuSOLVERMp is compatible with 2D block-cyclic data layout and provides ScaLAPACK-like C APIs.
-A companion library, CAL, contains utilities to manage communicators and to synchronize processes in a safe way.
-
-
-About libcusolvermp-dev
------------------------
-
-Home: https://docs.nvidia.com/cuda/cusolvermp/
-
-Package license: [LicenseRef-NVIDIA-End-User-License-Agreement](https://docs.nvidia.com/cuda/cusolvermp/license/index.html)
-
-Summary: NVIDIA cuSOLVERMp is a high-performance, distributed-memory, GPU-accelerated library that provides tools for the solution of dense linear systems and eigenvalue problems.
-
-Documentation: https://docs.nvidia.com/cuda/cusolvermp/
-
-NVIDIA cuSOLVERMp is a high-performance, distributed-memory, GPU-accelerated library that provides tools for the solution of dense linear systems and eigenvalue problems.
-cuSOLVERMp is compatible with 2D block-cyclic data layout and provides ScaLAPACK-like C APIs.
-A companion library, CAL, contains utilities to manage communicators and to synchronize processes in a safe way.
-
-
-About libcusolvermp0
---------------------
-
 Home: https://docs.nvidia.com/cuda/cusolvermp/
 
 Package license: [LicenseRef-NVIDIA-End-User-License-Agreement](https://docs.nvidia.com/cuda/cusolvermp/license/index.html)
