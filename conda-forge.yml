@@ -12,3 +12,8 @@ github:
 provider:
   linux_64: default
   linux_aarch64: default
+bot:
+  version_updates:
+    nvidia:
+      compute_subdir: cusolvermp
+      json_name: libcusolvermp
