@@ -51,6 +51,7 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ compiler('cuda') }}
         - {{ stdlib("c") }}
+        - arm-variant * {{ arm_variant_type }}  # [linux and aarch64]
       host:
         - cuda-version {{ cuda_compiler_version }}
         - libcusolver-dev
@@ -83,6 +84,7 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ compiler('cuda') }}
         - {{ stdlib("c") }}
+        - arm-variant * {{ arm_variant_type }}  # [linux and aarch64]
       run:
         - {{ pin_subpackage("libcusolvermp" ~ soname, exact=True) }}
     test:
