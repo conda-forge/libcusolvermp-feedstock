@@ -13,7 +13,6 @@ Documentation: https://docs.nvidia.com/cuda/cusolvermp/
 
 NVIDIA cuSOLVERMp is a high-performance, distributed-memory, GPU-accelerated library that provides tools for the solution of dense linear systems and eigenvalue problems.
 cuSOLVERMp is compatible with 2D block-cyclic data layout and provides ScaLAPACK-like C APIs.
-A companion library, CAL, contains utilities to manage communicators and to synchronize processes in a safe way.
 
 
 Current build status
