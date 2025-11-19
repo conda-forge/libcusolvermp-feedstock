@@ -19,7 +19,7 @@ source:
     sha256: "429772ba439da9ac1ea88989a0cc56f2f14b377af349129b1bf913e9357dbbd8"  # [linux and aarch64 and (cuda_compiler_version or "").startswith("13") and arm_variant_type == "sbsa"]
 
 build:
-  number: 1
+  number: 2
   skip: true  # [not (linux64 or aarch64)]
   skip: true  # [cuda_compiler_version in (None, "None") or (cuda_compiler_version or "").startswith("11")]
   script:
