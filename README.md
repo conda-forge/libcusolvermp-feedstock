@@ -1,7 +1,7 @@
 About libcusolvermp-feedstock
 =============================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcusolvermp-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcusolvermp-feedstock-cf-feedstock/blob/main/LICENSE.txt)
 
 Home: https://docs.nvidia.com/cuda/cusolvermp/
 
