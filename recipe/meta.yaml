@@ -34,12 +34,16 @@ requirements:
 outputs:
   - name: libcusolvermp{{ soname }}
     build:
+      missing_dso_whitelist:
+        - "*/libcuda.so.*"  # nvidia drivers
       run_exports:
         - {{ pin_subpackage("libcusolvermp" ~ soname, max_pin="x.x") }}
       ignore_run_exports_from:
-        - libcusolver-dev
         - cuda-cudart-dev
         - libcublas-dev
+        - libcusolver-dev
+        - libcusparse-dev
+        - libnvjitlink-dev
       ignore_run_exports:
         # Ignore `cuda-version` constraint as this supports CUDA Enhanced Compatibility.
         - cuda-version
@@ -54,16 +58,20 @@ outputs:
         - arm-variant * {{ arm_variant_type }}  # [linux and aarch64]
       host:
         - cuda-version {{ cuda_compiler_version }}
-        - libcusolver-dev
         - cuda-cudart-dev
         - libcublas-dev
+        - libcusolver-dev
+        - libcusparse-dev
+        - libnvjitlink-dev
         - nccl 2.25.*  # [(cuda_compiler_version or "").startswith("12")]
         - nccl 2.27.*  # [(cuda_compiler_version or "").startswith("13")]
       run:
         - {{ pin_compatible("cuda-version", min_pin="x", max_pin="x") }}
-        - libcusolver
         - cuda-cudart
         - libcublas
+        - libcusolver
+        - libcusparse
+        - libnvjitlink
     test:
       commands:
         - test -L $PREFIX/lib/libcusolverMp.so.{{ soname }}
