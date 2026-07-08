@@ -64,8 +64,8 @@ outputs:
         - libcusparse-dev
         - libnvjitlink-dev
         - libcublasmp >=0.9.1,<0.10.0a0
-        - nccl 2.29.*  # [(cuda_compiler_version or "").startswith("12")]
-        - nccl 2.29.*  # [(cuda_compiler_version or "").startswith("13")]
+        - nccl 2.30.*  # [(cuda_compiler_version or "").startswith("12")]
+        - nccl 2.30.*  # [(cuda_compiler_version or "").startswith("13")]
       run:
         - {{ pin_compatible("cuda-version", min_pin="x", max_pin="x") }}
         - cuda-cudart
