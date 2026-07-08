@@ -42,8 +42,6 @@ outputs:
         - cuda-cudart-dev
         - libcublas-dev
         - libcusolver-dev
-        - libcusparse-dev
-        - libnvjitlink-dev
       ignore_run_exports:
         # Ignore `cuda-version` constraint as this supports CUDA Enhanced Compatibility.
         - cuda-version
@@ -61,8 +59,6 @@ outputs:
         - cuda-cudart-dev
         - libcublas-dev
         - libcusolver-dev
-        - libcusparse-dev
-        - libnvjitlink-dev
         - libcublasmp >=0.9.1,<0.10.0a0
         - nccl 2.30.*  # [(cuda_compiler_version or "").startswith("12")]
         - nccl 2.30.*  # [(cuda_compiler_version or "").startswith("13")]
@@ -71,8 +67,6 @@ outputs:
         - cuda-cudart
         - libcublas
         - libcusolver
-        - libcusparse
-        - libnvjitlink
     test:
       commands:
         - test -L $PREFIX/lib/libcusolverMp.so.{{ soname }}
