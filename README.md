@@ -1,7 +1,7 @@
 About libcusolvermp-feedstock
 =============================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcusolvermp-feedstock-cf-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcusolvermp-feedstock/blob/main/LICENSE.txt)
 
 Home: https://docs.nvidia.com/cuda/cusolvermp/
 
@@ -19,7 +19,14 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/libcusolvermp-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/libcusolvermp-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
 </table>
 
 Current release info
@@ -145,4 +152,5 @@ Feedstock Maintainers
 =====================
 
 * [@conda-forge/cuda](https://github.com/orgs/conda-forge/teams/cuda/)
+* [@mrogowski](https://github.com/mrogowski/)
 
