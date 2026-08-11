@@ -59,7 +59,7 @@ outputs:
         - cuda-cudart-dev
         - libcublas-dev
         - libcusolver-dev
-        - libcublasmp 0.10.0
+        - libcublasmp-dev 0.10.0
         - nccl 2.30.*
       run:
         - {{ pin_compatible("cuda-version", min_pin="x", max_pin="x") }}
