@@ -1,4 +1,4 @@
-{% set version = "0.9.0.6427" %}
+{% set version = "0.9.1.9318" %}
 {% set lib_version = version.split(".")[0]+"."+version.split(".")[1]+"."+version.split(".")[2]+".0" %}
 {% set soname = version.split(".")[0] %}
 {% set arm_variant_type = arm_variant_type | default("sbsa") %}
@@ -10,13 +10,13 @@ package:
 
 source:
   - url: "https://developer.download.nvidia.com/compute/cusolvermp/redist/libcusolvermp/linux-x86_64/libcusolvermp-linux-x86_64-{{ version }}_cuda12-archive.tar.xz"  # [linux and x86_64 and (cuda_compiler_version or "").startswith("12")]
-    sha256: "3b071ce69c6a6a6bb7add8784e6a3fc54e9a64a8f2c1c7da40b03bcde39eb57c"  # [linux and x86_64 and (cuda_compiler_version or "").startswith("12")]
+    sha256: "aacb2a901ea5987aba8ccc77525dedbec7704319c8de407895efd4e351b219aa"  # [linux and x86_64 and (cuda_compiler_version or "").startswith("12")]
   - url: "https://developer.download.nvidia.com/compute/cusolvermp/redist/libcusolvermp/linux-x86_64/libcusolvermp-linux-x86_64-{{ version }}_cuda13-archive.tar.xz"  # [linux and x86_64 and (cuda_compiler_version or "").startswith("13")]
-    sha256: "982d8fb45912e34d5b037fef2bce3f3178ba1459bf6e1747a10d0a1b51d31a81"  # [linux and x86_64 and (cuda_compiler_version or "").startswith("13")]
+    sha256: "e07c06389b760d9f516c1418dfb03569c1c4b2545f72ffd94321f126666ddda9"  # [linux and x86_64 and (cuda_compiler_version or "").startswith("13")]
   - url: "https://developer.download.nvidia.com/compute/cusolvermp/redist/libcusolvermp/linux-sbsa/libcusolvermp-linux-sbsa-{{ version }}_cuda12-archive.tar.xz"  # [linux and aarch64 and (cuda_compiler_version or "").startswith("12") and arm_variant_type == "sbsa"]
-    sha256: "f9afae16b3356fa2c87c196c20fc0fbca5e5ad200d1aacaa8f88897020d19370"  # [linux and aarch64 and (cuda_compiler_version or "").startswith("12") and arm_variant_type == "sbsa"]
+    sha256: "f1456c2995949523b1746be8e1e094ed6fd4ff833985e721a33c8b46de672b4a"  # [linux and aarch64 and (cuda_compiler_version or "").startswith("12") and arm_variant_type == "sbsa"]
   - url: "https://developer.download.nvidia.com/compute/cusolvermp/redist/libcusolvermp/linux-sbsa/libcusolvermp-linux-sbsa-{{ version }}_cuda13-archive.tar.xz"  # [linux and aarch64 and (cuda_compiler_version or "").startswith("13") and arm_variant_type == "sbsa"]
-    sha256: "978fa1599fc7ad20edd67f6d9620c0dcb968df4e885966d2acc57c7858843b07"  # [linux and aarch64 and (cuda_compiler_version or "").startswith("13") and arm_variant_type == "sbsa"]
+    sha256: "d25ff1dfbb667d039cc4a2d98641923339e8e95866f36847d11e347978ec08c3"  # [linux and aarch64 and (cuda_compiler_version or "").startswith("13") and arm_variant_type == "sbsa"]
 
 build:
   number: 0
@@ -59,7 +59,7 @@ outputs:
         - cuda-cudart-dev
         - libcublas-dev
         - libcusolver-dev
-        - libcublasmp 0.9.1
+        - libcublasmp-dev 0.10.0
         - nccl 2.30.*
       run:
         - {{ pin_compatible("cuda-version", min_pin="x", max_pin="x") }}
